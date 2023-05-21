@@ -7,29 +7,54 @@
 	padding: 20px 0 40px 0;
 
 	&__title {
-
 		font-size: 24px;
 		text-align: center;
 	}
+
+	&__controls {
+		display: flex;
+		width: 100%;
+		max-width: 500px;
+		justify-content: start;
+		margin: 0 0 60px 0;
+	}
+
+	&__subtitle {
+		margin: 0 0 10px 0;
+		font-size: 14px;
+		font-weight: 400;
+	}
+
+	&__select {}
 
 	&__start-game-btn {
 		margin: 0 0 10px 0;
 	}
 
-	&__-game-field {
+	&__game-field {
 		display: flex;
-		max-width: 400px;
+		width: 500px;
 		flex-wrap: wrap;
 	}
 
 	&__ingame-btn {
 
 		&_easy {
-			height: 40px;
-			width: 40px;
+			height: 50px;
+			width: 50px;
 			font-size: 24px;
 		}
 
-	}
+		&_normal {
+			height: 33.3px;
+			width: 33.3px;
+			font-size: 18px;
+		}
 
+		&_hard {
+			height: 20px;
+			width: 20px;
+			font-size: 12px;
+		}
+	}
 }

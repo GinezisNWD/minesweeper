@@ -1,24 +1,23 @@
 function startGame(WIDTH, HEIGHT, BOMBS_COUNT) {
-	const field = document.querySelector('.minesweeper__-game-field')
+	const field = document.querySelector('.minesweeper__game-field')
 	field.innerHTML = ''
 	const cellsCount = WIDTH * HEIGHT
 	for (let i = 0; i < cellsCount; i++) {
 		const minesweeperGameBtn = document.createElement('button')
-		minesweeperGameBtn.classList.add('minesweeper__ingame-btn', 'minesweeper__ingame-btn_easy')
+		minesweeperGameBtn.classList.add('minesweeper__ingame-btn')
+		if (WIDTH === 10) { minesweeperGameBtn.classList.add('minesweeper__ingame-btn_easy') }
+		if (WIDTH === 15) { minesweeperGameBtn.classList.add('minesweeper__ingame-btn_normal') }
+		if (WIDTH === 25) { minesweeperGameBtn.classList.add('minesweeper__ingame-btn_hard') }
 		field.append(minesweeperGameBtn)
 	}
-
-
 
 	const cells = [...field.children]
 	let closedCount = cellsCount
 
 	const bombs = [...Array(cellsCount).keys()].sort(() => Math.random() - 0.5).slice(0, BOMBS_COUNT)
 
-
 	field.addEventListener('click', (e) => {
 		if (e.target.tagName !== 'BUTTON') { return }
-
 		const index = cells.indexOf(e.target)
 		const column = index % WIDTH
 		const row = Math.floor(index / WIDTH)
@@ -54,7 +53,6 @@ function startGame(WIDTH, HEIGHT, BOMBS_COUNT) {
 
 		cell.disabled = true
 
-
 		if (isBomb(row, column)) {
 			cell.innerHTML = 'x'
 			console.log('you lose')
@@ -89,7 +87,19 @@ function startGame(WIDTH, HEIGHT, BOMBS_COUNT) {
 		const index = row * WIDTH + column
 		return bombs.includes(index)
 	}
-
 }
 
-export default startGame
+function getDifficultLevel() {
+	const minesweeperSelect = document.querySelector('.minesweeper__select')
+	if (minesweeperSelect.value === 'Hard') {
+		startGame(25, 25, 99)
+		return
+	}
+	if (minesweeperSelect.value === 'Normal') {
+		startGame(15, 15, 25)
+		return
+	}
+	startGame(10, 10, 10)
+}
+
+export { startGame, getDifficultLevel } 
