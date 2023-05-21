@@ -4,7 +4,6 @@
 @import 'vendors/bootstrap';
 
 @import 'base/normalize';
-@import 'base/reset';
 @import 'base/typography';
 
 @import 'layout/navigation';
@@ -27,6 +26,9 @@
 html,
 body {
 	height: 100%;
+
+	font-size: 14px;
+	font-family: Verdana, Tahoma, sans-serif;
 }
 
 .container {
