@@ -1,0 +1,35 @@
+.minesweeper {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+
+	padding: 20px 0 40px 0;
+
+	&__title {
+
+		font-size: 24px;
+		text-align: center;
+	}
+
+	&__start-game-btn {
+		margin: 0 0 10px 0;
+	}
+
+	&__-game-field {
+		display: flex;
+		max-width: 400px;
+		flex-wrap: wrap;
+	}
+
+	&__ingame-btn {
+
+		&_easy {
+			height: 40px;
+			width: 40px;
+			font-size: 24px;
+		}
+
+	}
+
+}
