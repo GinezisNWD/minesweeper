@@ -5,7 +5,8 @@ renderMainPage()
 renderMinesweeperSection()
 getDifficultLevel()
 
-const startGameBtm = document.querySelector('.minesweeper__start-game-btn')
-startGameBtm.addEventListener('click', () => {
-	getDifficultLevel()
+document.addEventListener('click', (e) => {
+	if (e.target.classList.contains('minesweeper__start-game-btn') || e.target.classList.contains('minesweeper__restart-game-btn')) {
+		getDifficultLevel()
+	}
 })

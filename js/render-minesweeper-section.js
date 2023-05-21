@@ -14,7 +14,7 @@ function renderMinesweeperSection() {
 	difficultyLevel.classList.add('minesweeper__difficulty-level')
 
 	const minesweeperSubitle = document.createElement('h3')
-	minesweeperSubitle.textContent = 'Difficulty level'
+	minesweeperSubitle.textContent = 'Difficulty level:'
 	minesweeperSubitle.classList.add('minesweeper__subtitle')
 
 	const minesweeperSelect = document.createElement('select')
@@ -30,8 +30,22 @@ function renderMinesweeperSection() {
 	difficultyLevel.append(minesweeperSubitle, minesweeperSelect)
 	minesweeperControls.append(difficultyLevel)
 
+	const timerWrapper = document.createElement('div')
+	timerWrapper.classList.add('minesweeper__timer-wrapper')
+	const timerTitle = document.createElement('h3')
+	timerTitle.textContent = 'Timer:'
+	timerTitle.classList.add('minesweeper__subtitle')
+
+	const timerTime = document.createElement('p')
+	timerTime.classList.add('minesweeper__timer-time')
+	timerTime.innerText = '000'
+
+	timerWrapper.append(timerTitle, timerTime)
+	minesweeperControls.append(timerWrapper)
+
+
 	const minesweeperStartGameBtn = document.createElement('button')
-	minesweeperStartGameBtn.textContent = 'Start Game'
+	minesweeperStartGameBtn.textContent = 'Restart Game'
 	minesweeperStartGameBtn.classList.add('minesweeper__start-game-btn')
 
 	const minesweeperGameField = document.createElement('div')

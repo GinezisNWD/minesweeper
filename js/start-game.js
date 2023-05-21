@@ -1,3 +1,5 @@
+import renderEndGameMessage from "./render-end-game-message.js"
+
 function startGame(WIDTH, HEIGHT, BOMBS_COUNT) {
 	const field = document.querySelector('.minesweeper__game-field')
 	field.innerHTML = ''
@@ -55,13 +57,13 @@ function startGame(WIDTH, HEIGHT, BOMBS_COUNT) {
 
 		if (isBomb(row, column)) {
 			cell.innerHTML = 'x'
-			console.log('you lose')
+			endGame(false)
 			return
 		}
 
 		closedCount--
 		if (closedCount <= BOMBS_COUNT) {
-			console.log('you won')
+			endGame(true)
 			return
 		}
 
@@ -86,6 +88,10 @@ function startGame(WIDTH, HEIGHT, BOMBS_COUNT) {
 
 		const index = row * WIDTH + column
 		return bombs.includes(index)
+	}
+
+	function endGame(resultOfGame) {
+		renderEndGameMessage(resultOfGame)
 	}
 }
 
