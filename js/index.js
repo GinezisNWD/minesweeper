@@ -1,5 +1,5 @@
 import renderMainPage from "./render-main-page.js"
-import renderMinesweeperSection from "./render-Minesweeper-section.js"
+import renderMinesweeperSection from "./render-minesweeper-section.js"
 import { getDifficultLevel } from "./start-game.js"
 renderMainPage()
 renderMinesweeperSection()
