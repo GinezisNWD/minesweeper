@@ -1,6 +1,7 @@
 import renderMainPage from "./render-main-page.js"
 import renderMinesweeperSection from "./render-minesweeper-section.js"
 import { getDifficultLevel } from "./start-game.js"
+import { startGameEventFunc, endGameEventFunc } from "./game-state.js"
 renderMainPage()
 renderMinesweeperSection()
 getDifficultLevel()
@@ -10,3 +11,6 @@ document.addEventListener('click', (e) => {
 		getDifficultLevel()
 	}
 })
+
+window.addEventListener('startGameEvent', startGameEventFunc)
+window.addEventListener('endGameEvent', endGameEventFunc)

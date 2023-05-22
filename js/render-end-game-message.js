@@ -1,4 +1,4 @@
-function renderEndGameMessage(res) {
+function renderEndGameMessage(res, time) {
 	const field = document.querySelector('.minesweeper__game-field')
 
 	const popUpWrapper = document.createElement('div')
@@ -15,9 +15,9 @@ function renderEndGameMessage(res) {
 	minesweeperStartGameBtn.classList.add('minesweeper__restart-game-btn')
 
 	if (!res) {
-		popUpMessage.innerText = 'Жаль, но вы проиграли. Сыграем еще раз?'
+		popUpMessage.innerText = `Жаль, но вы проиграли за ${time} секунд.\nСыграем еще раз?`
 	} else {
-		popUpMessage.innerText = 'Поздравляем, вы нашли все мины. Сыграем еще раз?'
+		popUpMessage.innerText = `Поздравляем, вы нашли все мины за ${time} секунд.\nСыграем еще раз?`
 	}
 
 
