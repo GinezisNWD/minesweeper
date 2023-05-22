@@ -116,14 +116,17 @@ function startGame(WIDTH, HEIGHT, BOMBS_COUNT) {
 function getDifficultLevel() {
 	const minesweeperSelect = document.querySelector('.minesweeper__select')
 	if (minesweeperSelect.value === 'Hard') {
+		localStorage.setItem('difficultLevel', 'Hard')
 		startGame(25, 25, 99)
 		return
 	}
 	if (minesweeperSelect.value === 'Normal') {
 		startGame(15, 15, 25)
+		localStorage.setItem('difficultLevel', 'Normal')
 		return
 	}
 	startGame(10, 10, 10)
+	localStorage.setItem('difficultLevel', 'Easy')
 }
 
 
