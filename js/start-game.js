@@ -1,7 +1,17 @@
 import renderEndGameMessage from "./render-end-game-message.js"
 
 function startGame(WIDTH, HEIGHT, BOMBS_COUNT) {
+	// =======================================================
+	const startGameEvent = new Event('startGameEvent', {
+		bubbles: true,
+	})
+	const endGameEvent = new Event('endGameEvent', {
+		bubbles: true,
+	})
+	document.dispatchEvent(endGameEvent)
+	// =======================================================
 	const field = document.querySelector('.minesweeper__game-field')
+	field.removeEventListener('click', fieldAction)
 	field.innerHTML = ''
 	const cellsCount = WIDTH * HEIGHT
 	for (let i = 0; i < cellsCount; i++) {
@@ -15,16 +25,22 @@ function startGame(WIDTH, HEIGHT, BOMBS_COUNT) {
 
 	const cells = [...field.children]
 	let closedCount = cellsCount
-
 	const bombs = [...Array(cellsCount).keys()].sort(() => Math.random() - 0.5).slice(0, BOMBS_COUNT)
+	let isStarted = false
 
-	field.addEventListener('click', (e) => {
-		if (e.target.tagName !== 'BUTTON') { return }
-		const index = cells.indexOf(e.target)
-		const column = index % WIDTH
-		const row = Math.floor(index / WIDTH)
-		open(row, column)
-	})
+	function fieldAction(e) {
+		if (e.target.classList.contains('minesweeper__ingame-btn')) {
+			const index = cells.indexOf(e.target)
+			const column = index % WIDTH
+			const row = Math.floor(index / WIDTH)
+			if (isStarted === false) {
+				isStarted = true
+				window.dispatchEvent(startGameEvent)
+			}
+			open(row, column)
+		}
+	}
+	field.addEventListener('click', fieldAction)
 
 	function isValid(row, column) {
 		return row >= 0 && row < HEIGHT && column >= 0 && column < WIDTH
@@ -91,7 +107,9 @@ function startGame(WIDTH, HEIGHT, BOMBS_COUNT) {
 	}
 
 	function endGame(resultOfGame) {
-		renderEndGameMessage(resultOfGame)
+		const time = Number(document.querySelector('.minesweeper__timer-time').textContent)
+		renderEndGameMessage(resultOfGame, time)
+		window.dispatchEvent(endGameEvent)
 	}
 }
 
@@ -107,5 +125,7 @@ function getDifficultLevel() {
 	}
 	startGame(10, 10, 10)
 }
+
+
 
 export { startGame, getDifficultLevel } 
