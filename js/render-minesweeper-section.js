@@ -30,6 +30,18 @@ function renderMinesweeperSection() {
 	difficultyLevel.append(minesweeperSubitle, minesweeperSelect)
 	minesweeperControls.append(difficultyLevel)
 
+	const clicksWrapper = document.createElement('div')
+	clicksWrapper.classList.add('minesweeper__clicks-wrapper')
+	const clickClicksubtitle = document.createElement('h3')
+	clickClicksubtitle.classList.add('minesweeper__subtitle')
+	clickClicksubtitle.textContent = 'Clicks:'
+	const clicksCounter = document.createElement('p')
+	clicksCounter.classList.add('minesweeper__clicks-counter')
+	clicksCounter.textContent = 0
+
+	clicksWrapper.append(clickClicksubtitle, clicksCounter)
+	minesweeperControls.append(clicksWrapper)
+
 	const timerWrapper = document.createElement('div')
 	timerWrapper.classList.add('minesweeper__timer-wrapper')
 	const timerTitle = document.createElement('h3')

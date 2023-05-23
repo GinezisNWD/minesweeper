@@ -4,6 +4,8 @@ import { getDifficultLevel } from "./start-game.js"
 import { startGameEventFunc, endGameEventFunc } from "./game-state.js"
 renderMainPage()
 renderMinesweeperSection()
+document.querySelector('.minesweeper__select').value = localStorage.getItem('difficultLevel') ? localStorage.getItem('difficultLevel') : 'Easy'
+
 getDifficultLevel()
 
 document.addEventListener('click', (e) => {
