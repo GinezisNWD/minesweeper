@@ -64,11 +64,16 @@ function renderMinesweeperSection() {
 	const minesweeperGameField = document.createElement('div')
 	minesweeperGameField.classList.add('minesweeper__game-field')
 
+	const getHistoryBtn = document.createElement('button')
+	getHistoryBtn.textContent = `Game History`
+	getHistoryBtn.classList.add('minesweeper__get-history-btn')
+
 	minesweeperSection.append(
 		minesweeperTitle,
 		minesweeperControls,
 		minesweeperStartGameBtn,
-		minesweeperGameField)
+		minesweeperGameField,
+		getHistoryBtn)
 	mainContainder.append(minesweeperSection)
 }
 export default renderMinesweeperSection

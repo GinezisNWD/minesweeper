@@ -1,3 +1,4 @@
+import { saveResults } from "./game-history.js"
 function renderEndGameMessage(res, time, steps) {
 	const field = document.querySelector('.minesweeper__game-field')
 
@@ -21,11 +22,10 @@ function renderEndGameMessage(res, time, steps) {
 		popUpMessage.innerText = `Поздравляем, вы нашли все мины за ${steps} шагов и ${time} секунд.\nСыграем еще раз?`
 	}
 
-
 	popUp.append(popUpMessage, minesweeperStartGameBtn)
-
 	popUpWrapper.append(popUp)
 	field.append(popUpWrapper)
+	saveResults(res, time, steps)
 }
 
 export default renderEndGameMessage
