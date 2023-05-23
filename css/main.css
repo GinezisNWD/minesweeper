@@ -361,6 +361,13 @@ template {
   font-size: 14px;
   font-weight: 400;
 }
+.minesweeper__prim-btn {
+  background-color: in;
+  color: green;
+  border-color: green;
+  border-radius: 5px;
+  font-size: 18px;
+}
 .minesweeper__start-game-btn {
   margin: 0 0 10px 0;
 }
@@ -368,6 +375,11 @@ template {
   display: flex;
   width: 500px;
   flex-wrap: wrap;
+}
+.minesweeper__ingame-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .minesweeper__ingame-btn_easy {
   height: 50px;
@@ -382,7 +394,24 @@ template {
 .minesweeper__ingame-btn_hard {
   height: 20px;
   width: 20px;
-  font-size: 12px;
+  font-size: 20px;
+}
+.minesweeper__ingame-btn_flaged {
+  background-image: url(/assets/img/flag.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.minesweeper__ingame-btn._1 {
+  color: blue;
+}
+.minesweeper__ingame-btn._2 {
+  color: green;
+}
+.minesweeper__ingame-btn._3 {
+  color: red;
+}
+.minesweeper__ingame-btn._4 {
+  color: darkblue;
 }
 .minesweeper__pop-up-wrapper {
   position: absolute;
@@ -393,23 +422,31 @@ template {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(9, 195, 219, 0.1);
+  background-color: rgba(110, 94, 110, 0.1);
 }
 .minesweeper__pop-up {
-  position: relative;
-  top: -160px;
-  width: 500px;
-  height: 500px;
+  width: 70%;
+  height: 70%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: rgba(9, 195, 219, 0.4);
+  border: 3px solid green;
+  border-radius: 10px;
+  background-color: rgba(121, 94, 122, 0.4);
 }
 .minesweeper__message {
   max-width: 500px;
+  margin: 50px;
+  color: rgb(255, 255, 255);
   font-size: 32px;
   text-align: center;
+}
+.minesweeper__bomb-image {
+  display: block;
+  min-width: 20px;
+  width: 150%;
+  max-width: 50px;
 }
 
 html,

@@ -42,7 +42,18 @@ function startGame(WIDTH, HEIGHT, BOMBS_COUNT) {
 			open(row, column)
 		}
 	}
+
+	function fieldActionCM(e) {
+		if (e.target.classList.contains('minesweeper__ingame-btn')) {
+			e.preventDefault()
+			const index = cells.indexOf(e.target)
+			const column = index % WIDTH
+			const row = Math.floor(index / WIDTH)
+			toogleFlag(row, column)
+		}
+	}
 	field.addEventListener('click', fieldAction)
+	field.addEventListener('contextmenu', fieldActionCM)
 
 	function isValid(row, column) {
 		return row >= 0 && row < HEIGHT && column >= 0 && column < WIDTH
@@ -67,14 +78,14 @@ function startGame(WIDTH, HEIGHT, BOMBS_COUNT) {
 		const index = row * WIDTH + column
 		const cell = cells[index]
 
-		if (cell.disabled === true) {
+		if (cell.disabled === true || cell.classList.contains('minesweeper__ingame-btn_flaged')) {
 			return
 		}
 
 		cell.disabled = true
 
 		if (isBomb(row, column)) {
-			cell.innerHTML = 'x'
+			cell.innerHTML = '<img class="minesweeper__bomb-image" src="assets/img/bomb.jpg" alt="boms">'
 			endGame(false)
 			return
 		}
@@ -89,6 +100,7 @@ function startGame(WIDTH, HEIGHT, BOMBS_COUNT) {
 
 		if (count !== 0) {
 			cell.innerHTML = count
+			cell.classList.add(`_${count}`)
 			return
 		}
 
@@ -108,8 +120,29 @@ function startGame(WIDTH, HEIGHT, BOMBS_COUNT) {
 		return bombs.includes(index)
 	}
 
+	function toogleFlag(row, column) {
+		if (!isValid(row, column)) {
+			return
+		}
+		const index = row * WIDTH + column
+		const cell = cells[index]
+
+		if (cell.disabled === true) {
+			return
+		}
+
+		cell.classList.toggle('minesweeper__ingame-btn_flaged')
+	}
+
+	function showBombs(arr) {
+		arr.forEach(index => {
+			cells[index].innerHTML = '<img class="minesweeper__bomb-image" src="assets/img/bomb.jpg" alt="boms">'
+		})
+	}
+
 	function endGame(resultOfGame) {
 		const time = Number(document.querySelector('.minesweeper__timer-time').textContent)
+		showBombs(bombs)
 		setTimeout(() => {
 			const steps = document.querySelector('.minesweeper__clicks-counter')
 			const dataSteps = steps.textContent
