@@ -13,6 +13,8 @@ function startGame(WIDTH, HEIGHT, BOMBS_COUNT) {
 	const field = document.querySelector('.minesweeper__game-field')
 	field.removeEventListener('click', fieldAction)
 	field.innerHTML = ''
+	document.querySelector('.minesweeper__clicks-counter').textContent = 0
+
 	const cellsCount = WIDTH * HEIGHT
 	for (let i = 0; i < cellsCount; i++) {
 		const minesweeperGameBtn = document.createElement('button')
@@ -108,7 +110,11 @@ function startGame(WIDTH, HEIGHT, BOMBS_COUNT) {
 
 	function endGame(resultOfGame) {
 		const time = Number(document.querySelector('.minesweeper__timer-time').textContent)
-		renderEndGameMessage(resultOfGame, time)
+		setTimeout(() => {
+			const steps = document.querySelector('.minesweeper__clicks-counter')
+			const dataSteps = steps.textContent
+			renderEndGameMessage(resultOfGame, time, dataSteps)
+		}, 50)
 		window.dispatchEvent(endGameEvent)
 	}
 }
