@@ -13,6 +13,7 @@ function renderEndGameMessage(res, time, steps) {
 	const minesweeperStartGameBtn = document.createElement('button')
 	minesweeperStartGameBtn.textContent = 'Restart Game'
 	minesweeperStartGameBtn.classList.add('minesweeper__restart-game-btn')
+	minesweeperStartGameBtn.classList.add('minesweeper__prim-btn')
 
 	if (!res) {
 		popUpMessage.innerText = `Жаль, но вы проиграли за ${steps} шагов и ${time} секунд.\nСыграем еще раз?`

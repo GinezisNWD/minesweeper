@@ -59,6 +59,7 @@ function renderMinesweeperSection() {
 	const minesweeperStartGameBtn = document.createElement('button')
 	minesweeperStartGameBtn.textContent = 'Restart Game'
 	minesweeperStartGameBtn.classList.add('minesweeper__start-game-btn')
+	minesweeperStartGameBtn.classList.add('minesweeper__prim-btn')
 
 	const minesweeperGameField = document.createElement('div')
 	minesweeperGameField.classList.add('minesweeper__game-field')

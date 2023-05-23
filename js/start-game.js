@@ -100,6 +100,7 @@ function startGame(WIDTH, HEIGHT, BOMBS_COUNT) {
 
 		if (count !== 0) {
 			cell.innerHTML = count
+			cell.classList.add(`_${count}`)
 			return
 		}
 
