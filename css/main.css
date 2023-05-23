@@ -369,6 +369,11 @@ template {
   width: 500px;
   flex-wrap: wrap;
 }
+.minesweeper__ingame-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .minesweeper__ingame-btn_easy {
   height: 50px;
   width: 50px;
@@ -382,7 +387,12 @@ template {
 .minesweeper__ingame-btn_hard {
   height: 20px;
   width: 20px;
-  font-size: 12px;
+  font-size: 20px;
+}
+.minesweeper__ingame-btn_flaged {
+  background-image: url(/assets/img/flag.png);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 .minesweeper__pop-up-wrapper {
   position: absolute;
@@ -412,7 +422,10 @@ template {
   text-align: center;
 }
 .minesweeper__bomb-image {
-  max-width: 100%;
+  display: block;
+  min-width: 20px;
+  width: 150%;
+  max-width: 50px;
 }
 
 html,

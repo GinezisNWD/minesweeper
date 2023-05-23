@@ -7,11 +7,16 @@ function getClicks(state) {
 	}
 
 	let counter = 0
-	clicksCounter.textContent = 1
 	counter++
+	clicksCounter.textContent = 1
+
 
 	field.addEventListener('click', test)
 	function test(e) {
+		if (e.target.classList.contains('minesweeper__ingame-btn_flaged')) {
+			return
+		}
+
 		if (e.target.classList.contains('minesweeper__ingame-btn')) {
 			counter++
 			clicksCounter.textContent = counter

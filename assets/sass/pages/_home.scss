@@ -36,6 +36,9 @@
 	}
 
 	&__ingame-btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 
 		&_easy {
 			height: 50px;
@@ -52,7 +55,13 @@
 		&_hard {
 			height: 20px;
 			width: 20px;
-			font-size: 12px;
+			font-size: 20px;
+		}
+
+		&_flaged {
+			background-image: url(/assets/img/flag.png);
+			background-repeat: no-repeat;
+			background-size: contain;
 		}
 	}
 
@@ -90,6 +99,9 @@
 	}
 
 	&__bomb-image {
-		max-width: 100%;
+		display: block;
+		min-width: 20px;
+		width: 150%;
+		max-width: 50px;
 	}
 }
