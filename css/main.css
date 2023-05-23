@@ -397,7 +397,7 @@ template {
   font-size: 20px;
 }
 .minesweeper__ingame-btn_flaged {
-  background-image: url(/assets/img/flag.png);
+  background-image: url(../assets/img/flag.png);
   background-repeat: no-repeat;
   background-size: contain;
 }
