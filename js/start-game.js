@@ -74,7 +74,7 @@ function startGame(WIDTH, HEIGHT, BOMBS_COUNT) {
 		cell.disabled = true
 
 		if (isBomb(row, column)) {
-			cell.innerHTML = 'x'
+			cell.innerHTML = '<img class="minesweeper__bomb-image" src="assets/img/bomb.jpg" alt="boms">'
 			endGame(false)
 			return
 		}
@@ -108,8 +108,16 @@ function startGame(WIDTH, HEIGHT, BOMBS_COUNT) {
 		return bombs.includes(index)
 	}
 
+	function showBombs(arr) {
+		const test = new Date()
+		arr.forEach(index => {
+			cells[index].innerHTML = '<img class="minesweeper__bomb-image" src="assets/img/bomb.jpg" alt="boms">'
+		})
+	}
+
 	function endGame(resultOfGame) {
 		const time = Number(document.querySelector('.minesweeper__timer-time').textContent)
+		showBombs(bombs)
 		setTimeout(() => {
 			const steps = document.querySelector('.minesweeper__clicks-counter')
 			const dataSteps = steps.textContent

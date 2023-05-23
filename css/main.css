@@ -411,6 +411,9 @@ template {
   font-size: 32px;
   text-align: center;
 }
+.minesweeper__bomb-image {
+  max-width: 100%;
+}
 
 html,
 body {
