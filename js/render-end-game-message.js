@@ -18,8 +18,9 @@ function renderEndGameMessage(res, time, steps) {
 
 	if (!res) {
 		popUpMessage.innerText = `Жаль, но вы проиграли за ${steps} шагов и ${time} секунд.\nСыграем еще раз?`
+
 		if (document.querySelector('.minesweeper__sound-chebox').classList.contains('_active')) {
-			const loseSound = new Audio('../assets/audio/lose.mp3')
+			const loseSound = new Audio('.../assets/audio/lose.mp3')
 			loseSound.play()
 		}
 	} else {
