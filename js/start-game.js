@@ -1,6 +1,12 @@
 import renderEndGameMessage from "./render-end-game-message.js"
 
 function startGame(WIDTH, HEIGHT, BOMBS_COUNT) {
+	BOMBS_COUNT = Number(BOMBS_COUNT)
+	if (BOMBS_COUNT < 10 || BOMBS_COUNT > 99) {
+		BOMBS_COUNT = 10
+		document.querySelector('.minesweeper__number-of-mine-input').value = 10
+	}
+
 	// =======================================================
 	const startGameEvent = new Event('startGameEvent', {
 		bubbles: true,
@@ -153,18 +159,20 @@ function startGame(WIDTH, HEIGHT, BOMBS_COUNT) {
 }
 
 function getDifficultLevel() {
+	const numberOfMinesInput = document.querySelector('.minesweeper__number-of-mine-input')
+	const value = numberOfMinesInput.value
 	const minesweeperSelect = document.querySelector('.minesweeper__select')
 	if (minesweeperSelect.value === 'Hard') {
 		localStorage.setItem('difficultLevel', 'Hard')
-		startGame(25, 25, 99)
+		startGame(25, 25, value)
 		return
 	}
 	if (minesweeperSelect.value === 'Normal') {
-		startGame(15, 15, 25)
+		startGame(15, 15, value)
 		localStorage.setItem('difficultLevel', 'Normal')
 		return
 	}
-	startGame(10, 10, 10)
+	startGame(10, 10, value)
 	localStorage.setItem('difficultLevel', 'Easy')
 }
 

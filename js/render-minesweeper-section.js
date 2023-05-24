@@ -13,6 +13,17 @@ function renderMinesweeperSection() {
 	const difficultyLevel = document.createElement('div')
 	difficultyLevel.classList.add('minesweeper__difficulty-level')
 
+	const numberOfMinesSubitle = document.createElement('h3')
+	numberOfMinesSubitle.textContent = 'Number of mines:'
+	numberOfMinesSubitle.classList.add('minesweeper__subtitle')
+
+	const numberOfMinesInput = document.createElement('input')
+	numberOfMinesInput.setAttribute('type', 'number')
+	numberOfMinesInput.setAttribute('min', '10')
+	numberOfMinesInput.setAttribute('max', '99')
+	numberOfMinesInput.classList.add('minesweeper__number-of-mine-input')
+	numberOfMinesInput.value = 10
+
 	const minesweeperSubitle = document.createElement('h3')
 	minesweeperSubitle.textContent = 'Difficulty level:'
 	minesweeperSubitle.classList.add('minesweeper__subtitle')
@@ -27,7 +38,7 @@ function renderMinesweeperSection() {
 	hardLevel.textContent = 'Hard'
 
 	minesweeperSelect.append(easyLevel, normalLevel, hardLevel)
-	difficultyLevel.append(minesweeperSubitle, minesweeperSelect)
+	difficultyLevel.append(numberOfMinesSubitle, numberOfMinesInput, minesweeperSubitle, minesweeperSelect)
 	minesweeperControls.append(difficultyLevel)
 
 	const clicksWrapper = document.createElement('div')
