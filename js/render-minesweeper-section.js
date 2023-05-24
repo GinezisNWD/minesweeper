@@ -69,9 +69,21 @@ function renderMinesweeperSection() {
 	soundEffectsChecbox.setAttribute('type', 'checkbox')
 	soundEffectsChecbox.setAttribute('checked', 'true')
 	soundEffectsChecbox.classList.add('minesweeper__sound-chebox')
+	soundEffectsChecbox.classList.add('minesweeper__prim-chebox')
 	soundEffectsChecbox.classList.add('_active')
 
-	soundEffects.append(soundEffectsTitle, soundEffectsChecbox)
+	const themeTitle = document.createElement('h3')
+	themeTitle.textContent = 'Theme: light/dark'
+	themeTitle.classList.add('minesweeper__subtitle')
+
+	const themeChecbox = document.createElement('input')
+	themeChecbox.setAttribute('type', 'checkbox')
+	themeChecbox.setAttribute('checked', 'true')
+	themeChecbox.classList.add('minesweeper__theme-chebox')
+	themeChecbox.classList.add('minesweeper__prim-chebox')
+	themeChecbox.classList.add('_active')
+
+	soundEffects.append(soundEffectsTitle, soundEffectsChecbox, themeTitle, themeChecbox)
 	minesweeperEffects.append(soundEffects)
 
 

@@ -38,15 +38,20 @@
 
 	&__effects {
 		display: flex;
+		margin: 0 0 10px 0;
 	}
 
 	&__sound-effects {
 		display: flex;
 	}
 
-	&__sound-chebox {
-		margin: -7px 0 0 10px;
+	&__prim-chebox {
+		margin: -7px 30px 0 10px;
 	}
+
+	&__sound-chebox {}
+
+	&__theme-chebox {}
 
 	&__game-field {
 		display: flex;
@@ -144,8 +149,8 @@
 	}
 
 	&__get-history-btn {
-		color: orange;
-		border-color: orange;
+		color: rgb(190, 124, 0);
+		border-color: rgb(190, 124, 0);
 		border-radius: 5px;
 		font-size: 18px;
 	}
@@ -219,5 +224,18 @@
 		width: 25%;
 		text-align: center;
 	}
+}
 
+body.dark {
+	background-color: gray;
+	color: wheat;
+
+	.minesweeper__select {
+		background-color: gray;
+		color: wheat;
+	}
+
+	.minesweeper__ingame-btn {
+		background-color: rgb(96, 74, 69)
+	}
 }
