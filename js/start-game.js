@@ -164,16 +164,19 @@ function getDifficultLevel() {
 	const minesweeperSelect = document.querySelector('.minesweeper__select')
 	if (minesweeperSelect.value === 'Hard') {
 		localStorage.setItem('difficultLevel', 'Hard')
+		localStorage.setItem('numberOfMines', value)
 		startGame(25, 25, value)
 		return
 	}
 	if (minesweeperSelect.value === 'Normal') {
 		startGame(15, 15, value)
 		localStorage.setItem('difficultLevel', 'Normal')
+		localStorage.setItem('numberOfMines', value)
 		return
 	}
 	startGame(10, 10, value)
 	localStorage.setItem('difficultLevel', 'Easy')
+	localStorage.setItem('numberOfMines', value)
 }
 
 

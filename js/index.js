@@ -6,6 +6,7 @@ import { showGameHistory, hideGameHistory } from "./game-history.js"
 renderMainPage()
 renderMinesweeperSection()
 document.querySelector('.minesweeper__select').value = localStorage.getItem('difficultLevel') ? localStorage.getItem('difficultLevel') : 'Easy'
+document.querySelector('.minesweeper__number-of-mine-input').value = localStorage.getItem('numberOfMines') ? localStorage.getItem('numberOfMines') : 10
 
 getDifficultLevel()
 
