@@ -26,7 +26,7 @@ function renderEndGameMessage(res, time, steps) {
 	} else {
 		popUpMessage.innerText = `Поздравляем, вы нашли все мины за ${steps} шагов и ${time} секунд.\nСыграем еще раз?`
 		if (document.querySelector('.minesweeper__sound-chebox').classList.contains('_active')) {
-			const winSound = new Audio('../assets/audio/win.mp3')
+			const winSound = new Audio('assets/audio/win.mp3')
 			winSound.play()
 		}
 	}
