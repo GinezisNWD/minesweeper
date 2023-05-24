@@ -13,7 +13,7 @@ function getClicks(state) {
 
 	if (counter === 1) {
 		if (document.querySelector('.minesweeper__sound-chebox').classList.contains('_active')) {
-			const clickSound = new Audio('../assets/audio/click.mp3')
+			const clickSound = new Audio('assets/audio/click.mp3')
 			clickSound.volume = 0.6
 			clickSound.play()
 		}
@@ -26,7 +26,7 @@ function getClicks(state) {
 
 		if (e.target.classList.contains('minesweeper__ingame-btn')) {
 			if (document.querySelector('.minesweeper__sound-chebox').classList.contains('_active')) {
-				const clickSound = new Audio('../assets/audio/click.mp3')
+				const clickSound = new Audio('assets/audio/click.mp3')
 				clickSound.volume = 0.6
 				clickSound.play()
 			}
