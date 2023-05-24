@@ -55,6 +55,25 @@ function renderMinesweeperSection() {
 	timerWrapper.append(timerTitle, timerTime)
 	minesweeperControls.append(timerWrapper)
 
+	const minesweeperEffects = document.createElement('div')
+	minesweeperEffects.classList.add('minesweeper__effects')
+
+	const soundEffects = document.createElement('div')
+	soundEffects.classList.add('minesweeper__sound-effects')
+
+	const soundEffectsTitle = document.createElement('h3')
+	soundEffectsTitle.textContent = 'Sound effects on/off:'
+	soundEffectsTitle.classList.add('minesweeper__subtitle')
+
+	const soundEffectsChecbox = document.createElement('input')
+	soundEffectsChecbox.setAttribute('type', 'checkbox')
+	soundEffectsChecbox.setAttribute('checked', 'true')
+	soundEffectsChecbox.classList.add('minesweeper__sound-chebox')
+	soundEffectsChecbox.classList.add('_active')
+
+	soundEffects.append(soundEffectsTitle, soundEffectsChecbox)
+	minesweeperEffects.append(soundEffects)
+
 
 	const minesweeperStartGameBtn = document.createElement('button')
 	minesweeperStartGameBtn.textContent = 'Restart Game'
@@ -71,6 +90,7 @@ function renderMinesweeperSection() {
 	minesweeperSection.append(
 		minesweeperTitle,
 		minesweeperControls,
+		minesweeperEffects,
 		minesweeperStartGameBtn,
 		minesweeperGameField,
 		getHistoryBtn)
