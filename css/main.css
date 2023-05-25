@@ -442,6 +442,7 @@ template {
 .minesweeper__pop-up {
   width: 70%;
   height: 70%;
+  min-width: 500px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -543,6 +544,14 @@ body.dark .history-popup__wrapper {
   background-color: rgba(96, 74, 69, 0.9);
 }
 
+@media (max-height: 724px) {
+  .minesweeper__pop-up-wrapper {
+    height: 150%;
+  }
+  .history-popup {
+    top: 0;
+  }
+}
 html,
 body {
   height: 100%;
