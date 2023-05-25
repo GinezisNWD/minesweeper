@@ -551,6 +551,9 @@ body.dark .history-popup__wrapper {
   .history-popup {
     top: 0;
   }
+  .history-popup__wrapper {
+    height: 120%;
+  }
 }
 html,
 body {
