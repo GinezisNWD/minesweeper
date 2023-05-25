@@ -20,6 +20,7 @@ function startGame(WIDTH, HEIGHT, BOMBS_COUNT) {
 	field.removeEventListener('click', fieldAction)
 	field.innerHTML = ''
 	document.querySelector('.minesweeper__clicks-counter').textContent = 0
+	document.querySelector('.minesweeper__flags-counter').textContent = 0
 
 	const cellsCount = WIDTH * HEIGHT
 	for (let i = 0; i < cellsCount; i++) {
@@ -136,8 +137,13 @@ function startGame(WIDTH, HEIGHT, BOMBS_COUNT) {
 		if (cell.disabled === true) {
 			return
 		}
+		const winSound = new Audio('assets/audio/flag.mp3')
+		winSound.play()
 
 		cell.classList.toggle('minesweeper__ingame-btn_flaged')
+
+		const flags = document.querySelectorAll('.minesweeper__ingame-btn_flaged')
+		document.querySelector('.minesweeper__flags-counter').textContent = flags.length
 	}
 
 	function showBombs(arr) {

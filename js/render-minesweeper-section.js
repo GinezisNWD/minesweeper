@@ -41,6 +41,18 @@ function renderMinesweeperSection() {
 	difficultyLevel.append(numberOfMinesSubitle, numberOfMinesInput, minesweeperSubitle, minesweeperSelect)
 	minesweeperControls.append(difficultyLevel)
 
+	const flagsWrapper = document.createElement('div')
+	flagsWrapper.classList.add('minesweeper__flags-wrapper')
+	const flagsSubtitle = document.createElement('h3')
+	flagsSubtitle.classList.add('minesweeper__subtitle')
+	flagsSubtitle.textContent = 'Flags:'
+	const flagsCounter = document.createElement('p')
+	flagsCounter.classList.add('minesweeper__flags-counter')
+	flagsCounter.textContent = 0
+
+	flagsWrapper.append(flagsSubtitle, flagsCounter)
+	minesweeperControls.append(flagsWrapper)
+
 	const clicksWrapper = document.createElement('div')
 	clicksWrapper.classList.add('minesweeper__clicks-wrapper')
 	const clickClicksubtitle = document.createElement('h3')
